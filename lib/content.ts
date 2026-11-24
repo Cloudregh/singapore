@@ -11,7 +11,27 @@ import strategyTable from "@/assets/images/strategy-table.jpg";
 import handshake from "@/assets/images/handshake.jpg";
 import delegates from "@/assets/images/delegates.jpg";
 import workshop from "@/assets/images/workshop.jpg";
-import edwardSarpong from "@/assets/images/edward-ato-sarpong.jpg";
+import ramnath from "@/assets/images/ramnat.webp";
+import vhb1 from "@/assets/images/vhb-1.jpg";
+import vhb2 from "@/assets/images/vhb-2.jpg";
+import vhb3 from "@/assets/images/vhb-3.jpg";
+import vhb4 from "@/assets/images/vhb-4.jpg";
+
+export const hotel = {
+  name: "Village Hotel Bugis",
+  address: "390 Victoria Street, Singapore 188061",
+  blurb: "A 4-star hotel in the Kampong Glam district, close to Haji Lane, local eateries and boutiques.",
+  checkIn: "2:00 pm",
+  checkOut: "12:00 pm",
+  url: "https://www.villagehotels.asia/en/hotels/village-hotel-bugis",
+  facilities: ["Outdoor pool", "24-hour gym", "Free Wi-Fi", "Halal-certified restaurant", "24-hour front desk"],
+  photos: [
+    { src: vhb1, alt: "Colourful murals along Haji Lane, steps from the hotel" },
+    { src: vhb2, alt: "A twin guest room at Village Hotel Bugis" },
+    { src: vhb3, alt: "Guests at a buffet in the hotel's function rooms" },
+    { src: vhb4, alt: "The outdoor swimming pool at Village Hotel Bugis" },
+  ],
+};
 
 export const images = {
   supertrees,
@@ -55,89 +75,6 @@ export type Card = {
   alt: string;
 };
 
-export const cards: Card[] = [
-  {
-    id: "future",
-    kind: "conference",
-    tag: "Topic 01",
-    title: "The Future of World Business",
-    blurb: "Read the global shifts reshaping markets, trade and the way organisations compete.",
-    meta: "Conference Session",
-    image: boardroom,
-    alt: "Executives in a bright boardroom listening to a presentation",
-  },
-  {
-    id: "growth",
-    kind: "conference",
-    tag: "Topic 02",
-    title: "Good Growth Strategies",
-    blurb: "Build growth plans that are ambitious, sustainable and grounded in execution.",
-    meta: "Conference Session",
-    image: strategyTable,
-    alt: "Overhead view of a team planning around a table with laptops",
-  },
-  {
-    id: "influence",
-    kind: "conference",
-    tag: "Topic 03",
-    title: "Strategy for Influencing",
-    blurb: "Move stakeholders, boards and teams with clarity, credibility and intent.",
-    meta: "Conference Session",
-    image: workshop,
-    alt: "A facilitator arranging sticky notes on a strategy wall",
-  },
-  {
-    id: "leadership",
-    kind: "conference",
-    tag: "Topic 04",
-    title: "Effective Leadership",
-    blurb: "Sharpen the habits that turn strategy into results through people.",
-    meta: "Conference Session",
-    image: audience,
-    alt: "Conference audience seated in a hall",
-  },
-  {
-    id: "marina",
-    kind: "tour",
-    tag: "City Highlight",
-    title: "Marina Bay",
-    blurb: "The waterfront skyline that defines modern Singapore.",
-    meta: "Study Tour",
-    image: marinaBay,
-    alt: "Marina Bay Sands and the ArtScience Museum lit up at night",
-  },
-  {
-    id: "gardens",
-    kind: "tour",
-    tag: "City Highlight",
-    title: "Gardens by the Bay",
-    blurb: "Glowing Supertrees and a city that builds with nature.",
-    meta: "Study Tour",
-    image: supertrees,
-    alt: "The illuminated Supertree Grove at Gardens by the Bay",
-  },
-  {
-    id: "merlion",
-    kind: "tour",
-    tag: "City Highlight",
-    title: "Merlion Park",
-    blurb: "Singapore's icon, set against the financial district.",
-    meta: "Study Tour",
-    image: merlion,
-    alt: "The Merlion statue in front of the Singapore skyline at night",
-  },
-  {
-    id: "jewel",
-    kind: "tour",
-    tag: "City Highlight",
-    title: "Jewel Changi",
-    blurb: "The indoor rain vortex and forest valley at Changi Airport.",
-    meta: "Study Tour",
-    image: jewel,
-    alt: "The glass dome and indoor forest of Jewel Changi Airport",
-  },
-];
-
 export const pillars = [
   {
     n: "01",
@@ -169,13 +106,6 @@ export type Facilitator = {
 };
 
 export const facilitators: Facilitator[] = [
-  {
-    name: "Mr. Edward Ato Sarpong",
-    role: "Managing Director, Agricultural Development Bank (ADB), Ghana",
-    initials: "ES",
-    photo: edwardSarpong,
-  },
-  // No verified photo found online yet — drop one in assets/images and add `photo`.
-  { name: "Mr. Ramnath Venkatraman", role: "Facilitator", initials: "RV" },
+  { name: "Mr. Ramnath Venkatraman", role: "Facilitator", initials: "RV", photo: ramnath },
 ];
 

@@ -330,7 +330,7 @@ export function Footer() {
         </div>
       </div>
       <p className="mt-14 border-t border-hair-strong pt-6 text-xs text-muted">
-        Photography Via Pexels. Partner Logos Belong To Their Respective Institutions.
+        Photography Via Pexels And Village Hotels. Partner Logos Belong To Their Respective Institutions.
       </p>
     </footer>
   );

@@ -1,3 +1,4 @@
+import { AccessProvider } from "@/components/Access";
 import Motion from "@/components/Motion";
 import Hero from "@/components/Hero";
 import Topics from "@/components/Topics";
@@ -5,6 +6,7 @@ import { About, Cta, Details, Facilitators, Footer, MobileCta, Package, Partners
 
 export default function Home() {
   return (
+    <AccessProvider>
     <Motion>
       {/* The page sits as a white sheet on a periwinkle canvas, like the reference. */}
       <div className="mx-auto max-w-360 px-2 pt-2 md:px-8 md:pt-8">
@@ -26,5 +28,6 @@ export default function Home() {
       </div>
       <MobileCta />
     </Motion>
+    </AccessProvider>
   );
 }

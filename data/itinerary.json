@@ -1,0 +1,61 @@
+[
+  {
+    "date": "Sat 28 Nov",
+    "title": "Depart Accra",
+    "items": [
+      { "kind": "flight", "text": "ET 920 · Accra (ACC) → Addis Ababa (ADD)", "detail": "Departs 12:05 pm, Terminal 3 · Arrives 8:45 pm, Terminal 2 · Airbus A351 · Economy · Lunch" }
+    ]
+  },
+  {
+    "date": "Sun 29 Nov",
+    "title": "Arrive in Singapore",
+    "items": [
+      { "kind": "flight", "text": "ET 638 · Addis Ababa (ADD) → Singapore (SIN)", "detail": "Departs 12:10 am, Terminal 2 · Arrives 2:50 pm, Terminal 2 · Airbus A351 · Economy · Breakfast" },
+      { "kind": "hotel", "text": "Check in at Village Hotel Bugis" }
+    ]
+  },
+  {
+    "date": "Mon 30 Nov",
+    "title": "Conference",
+    "items": [{ "kind": "conference", "text": "Conference sessions" }]
+  },
+  {
+    "date": "Tue 1 Dec",
+    "title": "Conference",
+    "items": [{ "kind": "conference", "text": "Conference sessions" }]
+  },
+  {
+    "date": "Wed 2 Dec",
+    "title": "Tour · Changi Airport",
+    "items": [
+      { "kind": "tour", "text": "10:00 am · Pickup from Village Hotel Bugis" },
+      { "kind": "tour", "text": "10:00 am – 4:00 pm · Changi Airport: sightseeing, attractions and photos" },
+      { "kind": "tour", "text": "4:00 pm · Pickup from Changi Airport, then transfer back to Village Hotel Bugis" }
+    ]
+  },
+  {
+    "date": "Thu 3 Dec",
+    "title": "Tour · Sentosa Island",
+    "items": [
+      { "kind": "tour", "text": "10:00 am · Pickup from Village Hotel Bugis" },
+      { "kind": "tour", "text": "Morning – afternoon · Sentosa Island: Skyline Luge experience" },
+      { "kind": "tour", "text": "3:00 pm · Pickup by Good Old Days, then transfer back to Village Hotel Bugis. End of tour." }
+    ]
+  },
+  {
+    "date": "Fri 4 Dec",
+    "title": "Prepare for your flight",
+    "items": [
+      { "kind": "free", "text": "Free day to pack and get ready. Your first flight leaves in the early hours of Saturday." },
+      { "kind": "hotel", "text": "Check out of Village Hotel Bugis and head to Changi Airport" }
+    ]
+  },
+  {
+    "date": "Sat 5 Dec",
+    "title": "Fly home",
+    "items": [
+      { "kind": "flight", "text": "ET 639 · Singapore (SIN) → Addis Ababa (ADD)", "detail": "Departs 2:00 am, Terminal 2 · Arrives 6:05 am, Terminal 2 · Economy · Breakfast" },
+      { "kind": "flight", "text": "ET 921 · Addis Ababa (ADD) → Accra (ACC)", "detail": "Departs 8:25 am, Terminal 2 · Arrives 11:05 am, Terminal 3 · Airbus A351 · Economy · Lunch" }
+    ]
+  }
+]

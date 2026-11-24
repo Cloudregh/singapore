@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { animate, stagger } from "animejs";
-import { BookOpen, ChevronLeft, ChevronRight, Clock3, Landmark, MapPin } from "lucide-react";
-import { cards } from "@/lib/content";
+import { BookOpen, ChevronLeft, ChevronRight, Clock3, Landmark, Lock, MapPin } from "lucide-react";
+import { useAccess } from "./Access";
 
 const filters = [
   { id: "all", label: "All" },
@@ -18,7 +18,8 @@ export default function Topics() {
   const [filter, setFilter] = useState<FilterId>("all");
   const track = useRef<HTMLUListElement>(null);
   const first = useRef(true);
-  const visible = filter === "all" ? cards : cards.filter((c) => c.kind === filter);
+  const { cards } = useAccess();
+  const visible = !cards ? [] : filter === "all" ? cards : cards.filter((c) => c.kind === filter);
 
   useEffect(() => {
     if (first.current) {
@@ -55,8 +56,27 @@ export default function Topics() {
         What You&rsquo;ll Learn &amp; Where You&rsquo;ll Be
       </h2>
 
-      <div data-reveal className="mb-10 flex flex-wrap items-center justify-between gap-4">
-        <div role="group" aria-label="Filter cards" className="flex flex-wrap gap-1">
+      {!cards ? (
+        <div className="flex flex-col items-center rounded-2xl border border-hair bg-white/60 px-6 py-14 text-center">
+          <span className="grid size-12 place-items-center rounded-full bg-accent-soft text-accent">
+            <Lock className="size-5" strokeWidth={1.5} aria-hidden />
+          </span>
+          <h3 className="mt-5 text-xl font-medium">For Registered Delegates</h3>
+          <p className="mt-2 max-w-md text-sm text-muted">
+            Enter your name in the itinerary search at the top of the page to unlock the conference topics and
+            Singapore highlights.
+          </p>
+          <a
+            href="#delegate-name"
+            className="mt-6 inline-flex min-h-11 items-center rounded-full bg-accent px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-strong"
+          >
+            Find My Itinerary
+          </a>
+        </div>
+      ) : (
+        <>
+      <div className="mb-8 flex items-center justify-between gap-4 md:mb-10">
+        <div role="group" aria-label="Filter cards" className="no-scrollbar -mx-1 flex max-w-full gap-1 overflow-x-auto px-1">
           {filters.map((f) => {
             const on = f.id === filter;
             return (
@@ -65,7 +85,7 @@ export default function Topics() {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setFilter(f.id)}
-                className={`min-h-11 rounded-full border px-5 text-[0.95rem] transition-colors duration-200 ${
+                className={`min-h-11 shrink-0 whitespace-nowrap rounded-full border px-4 text-[0.95rem] sm:px-5 transition-colors duration-200 ${
                   on ? "border-accent text-accent" : "border-transparent text-ink hover:text-accent"
                 }`}
               >
@@ -74,7 +94,7 @@ export default function Topics() {
             );
           })}
         </div>
-        <div className="flex gap-3">
+        <div className="hidden gap-3 sm:flex">
           <button type="button" onClick={() => scrollBy(-1)} aria-label="Previous cards" className={arrow}>
             <ChevronLeft className="size-5" strokeWidth={1.5} aria-hidden />
           </button>
@@ -86,7 +106,6 @@ export default function Topics() {
 
       <ul
         ref={track}
-        data-stagger
         className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-start gap-6 overflow-x-auto scroll-px-5 px-5 md:-mx-14 md:scroll-px-14 md:px-14"
       >
         {visible.map((c, i) => (
@@ -127,6 +146,8 @@ export default function Topics() {
           </li>
         ))}
       </ul>
+        </>
+      )}
     </section>
   );
 }
