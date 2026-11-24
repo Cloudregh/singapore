@@ -81,7 +81,7 @@ export default function InfoBar() {
   return (
     <div
       data-infobar
-      className="relative z-10 mx-auto w-full max-w-[1100px] rounded-2xl bg-white"
+      className="relative z-10 mx-auto w-full max-w-275 rounded-2xl bg-white"
     >
       <div role="tablist" aria-label="Package details" className="flex gap-4 overflow-x-auto border-b border-hair px-4 pt-2 no-scrollbar md:gap-6 md:px-6">
         {tabs.map((t) => {

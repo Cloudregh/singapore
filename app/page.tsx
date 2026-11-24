@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Motion>
       {/* The page sits as a white sheet on a periwinkle canvas, like the reference. */}
-      <div className="mx-auto max-w-[1440px] px-2 pt-2 md:px-8 md:pt-8">
+      <div className="mx-auto max-w-360 px-2 pt-2 md:px-8 md:pt-8">
         <div className="overflow-hidden rounded-t-[22px] border border-b-0 border-white/70 bg-white md:rounded-t-[28px]">
           <main>
             <Hero />

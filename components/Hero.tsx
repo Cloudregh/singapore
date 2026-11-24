@@ -6,7 +6,7 @@ import { event, images } from "@/lib/content";
 
 export default function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative isolate flex min-h-[760px] flex-col overflow-hidden bg-ink md:min-h-[820px]">
+    <section id="top" aria-labelledby="hero-title" className="relative isolate flex min-h-190 flex-col overflow-hidden bg-ink md:min-h-205">
       <div data-hero-bg className="absolute inset-0 -z-10">
         <Image
           src={images.supertrees}
@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div aria-hidden className="pointer-events-none absolute left-0 top-[34%] md:top-[30%]">
         <div data-plane className="flex items-center gap-2 text-white/85">
-          <span className="h-px w-24 bg-gradient-to-r from-transparent to-white/60" />
+          <span className="h-px w-24 bg-linear-to-r from-transparent to-white/60" />
           <Plane className="size-6 rotate-45" strokeWidth={1.5} />
         </div>
       </div>

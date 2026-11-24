@@ -17,7 +17,7 @@ export function Partners() {
         <Image
           src={partners}
           alt="Partner logos: African Institute of Sanitation & Waste Management, The Edge Faculty, KNUST and Stratbridge"
-          className="h-auto w-full max-w-[420px]"
+          className="h-auto w-full max-w-105"
         />
       </div>
     </section>

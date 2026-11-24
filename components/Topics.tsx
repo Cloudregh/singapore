@@ -94,7 +94,7 @@ export default function Topics() {
             <article className="group">
               <div
                 className={`relative overflow-hidden rounded-2xl bg-accent-soft ${
-                  i % 2 === 0 ? "aspect-[4/5]" : "aspect-[1/1]"
+                  i % 2 === 0 ? "aspect-4/5" : "aspect-square"
                 }`}
               >
                 <Image
