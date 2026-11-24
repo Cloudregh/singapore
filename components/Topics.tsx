@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { animate, stagger } from "animejs";
-import { ArrowUpRight, ChevronLeft, ChevronRight, MapPin, Sparkles } from "lucide-react";
+import { BookOpen, ChevronLeft, ChevronRight, Clock3, Landmark, MapPin } from "lucide-react";
 import { cards } from "@/lib/content";
 
 const filters = [
@@ -31,9 +31,9 @@ export default function Topics() {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     animate(Array.from(el.children), {
       opacity: [0, 1],
-      x: [60, 0],
-      duration: 700,
-      delay: stagger(80),
+      x: [48, 0],
+      duration: 650,
+      delay: stagger(70),
       ease: "out(4)",
     });
   }, [filter]);
@@ -46,21 +46,17 @@ export default function Topics() {
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
-  return (
-    <section id="topics" aria-labelledby="topics-title" className="mx-auto max-w-7xl px-5 pt-24 md:px-10 md:pt-32">
-      <div data-reveal className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-primary">
-            <Sparkles className="size-4" aria-hidden /> What you&rsquo;ll learn &amp; see
-          </p>
-          <h2 id="topics-title" className="max-w-2xl text-4xl font-bold md:text-5xl">
-            Four topics. One remarkable city.
-          </h2>
-        </div>
-      </div>
+  const arrow =
+    "inline-flex size-11 items-center justify-center rounded-full border border-accent text-accent transition-colors duration-200 hover:bg-accent hover:text-white";
 
-      <div data-reveal className="mb-8 flex flex-wrap items-center justify-between gap-4">
-        <div role="group" aria-label="Filter cards" className="flex flex-wrap gap-2">
+  return (
+    <section id="topics" aria-labelledby="topics-title" className="bg-white px-5 pb-24 pt-20 md:px-14 md:pb-28 md:pt-24">
+      <h2 id="topics-title" data-reveal className="mb-8 max-w-xl text-[2rem] font-semibold md:text-[2.75rem]">
+        What You&rsquo;ll Learn &amp; Where You&rsquo;ll Be
+      </h2>
+
+      <div data-reveal className="mb-10 flex flex-wrap items-center justify-between gap-4">
+        <div role="group" aria-label="Filter cards" className="flex flex-wrap gap-1">
           {filters.map((f) => {
             const on = f.id === filter;
             return (
@@ -69,8 +65,8 @@ export default function Topics() {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setFilter(f.id)}
-                className={`min-h-11 rounded-full border px-5 text-[0.95rem] font-medium transition-colors duration-200 ${
-                  on ? "border-primary bg-primary-soft text-primary" : "border-transparent text-ink hover:border-line"
+                className={`min-h-11 rounded-full border px-5 text-[0.95rem] transition-colors duration-200 ${
+                  on ? "border-accent text-accent" : "border-transparent text-ink hover:text-accent"
                 }`}
               >
                 {f.label}
@@ -78,22 +74,12 @@ export default function Topics() {
             );
           })}
         </div>
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={() => scrollBy(-1)}
-            aria-label="Previous cards"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-primary text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
-          >
-            <ChevronLeft className="size-5" aria-hidden />
+        <div className="flex gap-3">
+          <button type="button" onClick={() => scrollBy(-1)} aria-label="Previous cards" className={arrow}>
+            <ChevronLeft className="size-5" strokeWidth={1.5} aria-hidden />
           </button>
-          <button
-            type="button"
-            onClick={() => scrollBy(1)}
-            aria-label="Next cards"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-primary text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
-          >
-            <ChevronRight className="size-5" aria-hidden />
+          <button type="button" onClick={() => scrollBy(1)} aria-label="Next cards" className={arrow}>
+            <ChevronRight className="size-5" strokeWidth={1.5} aria-hidden />
           </button>
         </div>
       </div>
@@ -101,43 +87,41 @@ export default function Topics() {
       <ul
         ref={track}
         data-stagger
-        className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-5 px-5 pb-6 md:-mx-10 md:scroll-px-10 md:px-10"
+        className="no-scrollbar -mx-5 flex snap-x snap-mandatory items-start gap-6 overflow-x-auto scroll-px-5 px-5 md:-mx-14 md:scroll-px-14 md:px-14"
       >
         {visible.map((c, i) => (
-          <li key={c.id} className="w-[80%] shrink-0 snap-start sm:w-[46%] lg:w-[calc(25%-18px)]">
+          <li key={c.id} className="w-[78%] shrink-0 snap-start sm:w-[44%] lg:w-[calc(28%-12px)]">
             <article className="group">
               <div
-                className={`relative overflow-hidden rounded-[var(--radius-card)] bg-primary-tint ${
-                  i % 2 === 0 ? "aspect-[4/5]" : "aspect-[4/4.4]"
+                className={`relative overflow-hidden rounded-2xl bg-accent-soft ${
+                  i % 2 === 0 ? "aspect-[4/5]" : "aspect-[1/1]"
                 }`}
               >
                 <Image
                   src={c.image}
                   alt={c.alt}
                   fill
-                  sizes="(min-width:1024px) 25vw, (min-width:640px) 46vw, 80vw"
+                  sizes="(min-width:1024px) 28vw, (min-width:640px) 44vw, 78vw"
                   placeholder="blur"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur">
-                  {c.tag}
-                </span>
               </div>
-              <div className="pt-5">
-                <p className="mb-1 flex items-center gap-1.5 text-sm text-muted">
-                  <MapPin className="size-4" aria-hidden /> Singapore · {c.meta}
+              <div className="space-y-2.5 pt-5">
+                <p className="flex items-center gap-2 text-sm text-muted">
+                  {c.kind === "conference" ? (
+                    <BookOpen className="size-4 text-gold" strokeWidth={1.75} aria-hidden />
+                  ) : (
+                    <Landmark className="size-4 text-gold" strokeWidth={1.75} aria-hidden />
+                  )}
+                  <span className="text-ink">{c.tag}</span>
                 </p>
-                <h3 className="text-xl font-semibold">{c.title}</h3>
-                <p className="mt-2 text-[0.95rem] text-muted">{c.blurb}</p>
-                {c.kind === "conference" && (
-                  <a
-                    href="#details"
-                    className="mt-4 inline-flex min-h-11 items-center gap-1.5 font-semibold text-primary hover:text-primary-strong"
-                  >
-                    Included in programme
-                    <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-                  </a>
-                )}
+                <h3 className="text-xl font-medium md:text-[1.35rem]">{c.title}</h3>
+                <p className="flex items-center gap-2 text-muted">
+                  <MapPin className="size-[1.1rem]" strokeWidth={1.5} aria-hidden /> Singapore
+                </p>
+                <p className="flex items-center gap-2 text-muted">
+                  <Clock3 className="size-[1.1rem]" strokeWidth={1.5} aria-hidden /> {c.meta}
+                </p>
               </div>
             </article>
           </li>

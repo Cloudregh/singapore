@@ -81,9 +81,9 @@ export default function InfoBar() {
   return (
     <div
       data-infobar
-      className="relative z-10 mx-auto -mt-28 w-[calc(100%-2rem)] max-w-6xl rounded-[1.75rem] bg-white shadow-[var(--shadow-float)] md:-mt-32 md:w-[calc(100%-5rem)]"
+      className="relative z-10 mx-auto w-full max-w-[1100px] rounded-2xl bg-white"
     >
-      <div role="tablist" aria-label="Package details" className="flex gap-1 overflow-x-auto border-b border-line px-4 pt-3 no-scrollbar md:px-6">
+      <div role="tablist" aria-label="Package details" className="flex gap-4 overflow-x-auto border-b border-hair px-4 pt-2 no-scrollbar md:gap-6 md:px-6">
         {tabs.map((t) => {
           const selected = t.id === active;
           return (
@@ -95,15 +95,15 @@ export default function InfoBar() {
               aria-selected={selected}
               aria-controls="infobar-panel"
               onClick={() => setActive(t.id)}
-              className={`relative inline-flex min-h-12 shrink-0 items-center gap-2 px-3 text-sm font-medium transition-colors duration-200 ${
-                selected ? "text-primary" : "text-muted hover:text-ink"
+              className={`relative inline-flex min-h-12 shrink-0 items-center gap-2 text-sm transition-colors duration-200 ${
+                selected ? "text-accent" : "text-muted hover:text-ink"
               }`}
             >
-              <t.icon className="size-4" aria-hidden />
+              <t.icon className="size-4" strokeWidth={1.5} aria-hidden />
               {t.label}
               <span
                 aria-hidden
-                className={`absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-primary transition-transform duration-300 ${
+                className={`absolute inset-x-0 -bottom-px h-px bg-accent transition-transform duration-300 ${
                   selected ? "scale-x-100" : "scale-x-0"
                 }`}
               />
@@ -116,14 +116,14 @@ export default function InfoBar() {
         id="infobar-panel"
         role="tabpanel"
         aria-labelledby={`tab-${tab.id}`}
-        className="grid gap-4 p-4 md:grid-cols-[1fr_auto] md:items-end md:p-6"
+        className="grid gap-4 p-4 md:grid-cols-[1fr_auto] md:items-end md:px-6 md:pb-6 md:pt-5"
       >
         <dl ref={fieldsRef} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {tab.fields.map((f) => (
             <div key={f.label} className="min-w-0">
-              <dt className="mb-2 text-sm font-medium text-ink">{f.label}</dt>
-              <dd className="flex min-h-12 items-center gap-2 rounded-full border border-line px-4 text-[0.95rem] text-ink">
-                <f.icon className="size-4 shrink-0 text-primary" aria-hidden />
+              <dt className="mb-2 text-sm text-ink">{f.label}</dt>
+              <dd className="flex min-h-11 items-center gap-2.5 rounded-full border border-hair px-4 text-sm text-ink">
+                <f.icon className="size-4 shrink-0 text-ink" strokeWidth={1.5} aria-hidden />
                 <span className="truncate">{f.value}</span>
               </dd>
             </div>
@@ -134,10 +134,10 @@ export default function InfoBar() {
           href={event.registerUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 font-semibold text-white shadow-[0_12px_24px_-12px_rgb(11_95_199/0.8)] transition-all duration-200 hover:bg-primary-strong active:scale-[0.98]"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-accent px-6 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent-strong"
         >
+          <ArrowUpRight className="size-4" strokeWidth={1.75} aria-hidden />
           Reserve Seat
-          <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
         </a>
       </div>
     </div>

@@ -60,27 +60,13 @@ export default function Motion({ children }: { children: ReactNode }) {
         ease: "linear",
       });
 
-      animate("[data-marquee]", {
-        x: ["0%", "-50%"],
-        duration: 38000,
-        ease: "linear",
-        loop: true,
-      });
-
       animate("[data-float]", {
-        y: [0, -14],
+        y: [0, -10],
         duration: 2600,
         delay: stagger(300),
         ease: "inOut(2)",
         loop: true,
         alternate: true,
-      });
-
-      animate("[data-spin]", {
-        rotate: "1turn",
-        duration: 9000,
-        ease: "linear",
-        loop: true,
       });
 
       /* ── Scroll reveals ────────────────────────────── */

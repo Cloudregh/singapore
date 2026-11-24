@@ -11,6 +11,7 @@ import strategyTable from "@/assets/images/strategy-table.jpg";
 import handshake from "@/assets/images/handshake.jpg";
 import delegates from "@/assets/images/delegates.jpg";
 import workshop from "@/assets/images/workshop.jpg";
+import edwardSarpong from "@/assets/images/edward-ato-sarpong.jpg";
 
 export const images = {
   supertrees,
@@ -61,7 +62,7 @@ export const cards: Card[] = [
     tag: "Topic 01",
     title: "The Future of World Business",
     blurb: "Read the global shifts reshaping markets, trade and the way organisations compete.",
-    meta: "Conference module",
+    meta: "Conference Session",
     image: boardroom,
     alt: "Executives in a bright boardroom listening to a presentation",
   },
@@ -71,7 +72,7 @@ export const cards: Card[] = [
     tag: "Topic 02",
     title: "Good Growth Strategies",
     blurb: "Build growth plans that are ambitious, sustainable and grounded in execution.",
-    meta: "Conference module",
+    meta: "Conference Session",
     image: strategyTable,
     alt: "Overhead view of a team planning around a table with laptops",
   },
@@ -81,7 +82,7 @@ export const cards: Card[] = [
     tag: "Topic 03",
     title: "Strategy for Influencing",
     blurb: "Move stakeholders, boards and teams with clarity, credibility and intent.",
-    meta: "Conference module",
+    meta: "Conference Session",
     image: workshop,
     alt: "A facilitator arranging sticky notes on a strategy wall",
   },
@@ -91,47 +92,47 @@ export const cards: Card[] = [
     tag: "Topic 04",
     title: "Effective Leadership",
     blurb: "Sharpen the habits that turn strategy into results through people.",
-    meta: "Conference module",
+    meta: "Conference Session",
     image: audience,
     alt: "Conference audience seated in a hall",
   },
   {
     id: "marina",
     kind: "tour",
-    tag: "Singapore",
+    tag: "City Highlight",
     title: "Marina Bay",
     blurb: "The waterfront skyline that defines modern Singapore.",
-    meta: "City highlight",
+    meta: "Study Tour",
     image: marinaBay,
     alt: "Marina Bay Sands and the ArtScience Museum lit up at night",
   },
   {
     id: "gardens",
     kind: "tour",
-    tag: "Singapore",
+    tag: "City Highlight",
     title: "Gardens by the Bay",
     blurb: "Glowing Supertrees and a city that builds with nature.",
-    meta: "City highlight",
+    meta: "Study Tour",
     image: supertrees,
     alt: "The illuminated Supertree Grove at Gardens by the Bay",
   },
   {
     id: "merlion",
     kind: "tour",
-    tag: "Singapore",
+    tag: "City Highlight",
     title: "Merlion Park",
     blurb: "Singapore's icon, set against the financial district.",
-    meta: "City highlight",
+    meta: "Study Tour",
     image: merlion,
     alt: "The Merlion statue in front of the Singapore skyline at night",
   },
   {
     id: "jewel",
     kind: "tour",
-    tag: "Singapore",
+    tag: "City Highlight",
     title: "Jewel Changi",
     blurb: "The indoor rain vortex and forest valley at Changi Airport.",
-    meta: "City highlight",
+    meta: "Study Tour",
     image: jewel,
     alt: "The glass dome and indoor forest of Jewel Changi Airport",
   },
@@ -156,20 +157,25 @@ export const pillars = [
   {
     n: "04",
     title: "Networking",
-    body: "Build relationships with fellow leaders, faculty and partners.",
+    body: "Build relationships with fellow leaders, facilitators and partners.",
   },
 ];
 
-export const faculty = [
-  { name: "Mr. Edward Ato Sarpong", role: "M.D., ADB", initials: "ES" },
-  { name: "Mr. Ramnath Venkatraman", role: "Faculty", initials: "RV" },
+export type Facilitator = {
+  name: string;
+  role: string;
+  initials: string;
+  photo?: StaticImageData;
+};
+
+export const facilitators: Facilitator[] = [
+  {
+    name: "Mr. Edward Ato Sarpong",
+    role: "Managing Director, Agricultural Development Bank (ADB), Ghana",
+    initials: "ES",
+    photo: edwardSarpong,
+  },
+  // No verified photo found online yet — drop one in assets/images and add `photo`.
+  { name: "Mr. Ramnath Venkatraman", role: "Facilitator", initials: "RV" },
 ];
 
-export const topicsTicker = [
-  "The Future of World Business",
-  "Good Growth Strategies",
-  "Strategy for Influencing",
-  "Effective Leadership",
-  "Corporate Leadership",
-  "Networking",
-];

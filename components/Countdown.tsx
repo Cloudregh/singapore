@@ -33,7 +33,7 @@ export default function Countdown() {
 
   if (state === "live" || state === "ended") {
     return (
-      <p className="rounded-2xl bg-white/10 px-5 py-4 font-display text-xl font-semibold text-white">
+      <p className="rounded-xl border border-hair px-5 py-4 font-display text-xl font-medium text-ink">
         {state === "live" ? "The conference is happening now in Singapore." : "This edition has ended — register for the next one."}
       </p>
     );
@@ -49,11 +49,11 @@ export default function Countdown() {
   return (
     <div role="timer" aria-label="Time until the conference starts" className="grid grid-cols-4 gap-2 sm:gap-3">
       {cells.map(([label, v]) => (
-        <div key={label} className="rounded-2xl bg-white/10 px-2 py-3 text-center ring-1 ring-white/15 backdrop-blur">
-          <span className="block font-display text-3xl font-bold tabular-nums text-white sm:text-4xl">
+        <div key={label} className="rounded-xl border border-hair px-2 py-4 text-center">
+          <span className="block font-display text-3xl font-semibold tabular-nums text-ink sm:text-4xl">
             {v === undefined ? "--" : String(v).padStart(2, "0")}
           </span>
-          <span className="text-xs font-medium uppercase tracking-wider text-white/75">{label}</span>
+          <span className="text-xs text-muted">{label}</span>
         </div>
       ))}
     </div>
