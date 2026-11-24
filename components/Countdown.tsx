@@ -1,0 +1,61 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { event } from "@/lib/content";
+
+type Parts = { d: number; h: number; m: number; s: number };
+
+const start = new Date(event.startsAt).getTime();
+const end = new Date(event.endsAt).getTime();
+
+function compute(now: number): Parts | "live" | "ended" {
+  if (now >= end) return "ended";
+  if (now >= start) return "live";
+  const diff = Math.floor((start - now) / 1000);
+  return {
+    d: Math.floor(diff / 86400),
+    h: Math.floor((diff % 86400) / 3600),
+    m: Math.floor((diff % 3600) / 60),
+    s: diff % 60,
+  };
+}
+
+export default function Countdown() {
+  // null until mounted: the clock is client-only, so SSR renders placeholders.
+  const [state, setState] = useState<ReturnType<typeof compute> | null>(null);
+
+  useEffect(() => {
+    const tick = () => setState(compute(Date.now()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  if (state === "live" || state === "ended") {
+    return (
+      <p className="rounded-2xl bg-white/10 px-5 py-4 font-display text-xl font-semibold text-white">
+        {state === "live" ? "The conference is happening now in Singapore." : "This edition has ended — register for the next one."}
+      </p>
+    );
+  }
+
+  const cells: [string, number | undefined][] = [
+    ["Days", state?.d],
+    ["Hours", state?.h],
+    ["Minutes", state?.m],
+    ["Seconds", state?.s],
+  ];
+
+  return (
+    <div role="timer" aria-label="Time until the conference starts" className="grid grid-cols-4 gap-2 sm:gap-3">
+      {cells.map(([label, v]) => (
+        <div key={label} className="rounded-2xl bg-white/10 px-2 py-3 text-center ring-1 ring-white/15 backdrop-blur">
+          <span className="block font-display text-3xl font-bold tabular-nums text-white sm:text-4xl">
+            {v === undefined ? "--" : String(v).padStart(2, "0")}
+          </span>
+          <span className="text-xs font-medium uppercase tracking-wider text-white/75">{label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}

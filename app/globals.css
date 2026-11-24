@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ── Primitive tokens ─────────────────────────────────────────── */
+:root {
+  --blue-50: #eef5fe;
+  --blue-100: #dbe9fc;
+  --blue-500: #1677e0;
+  --blue-600: #0b5fc7;
+  --blue-800: #083e86;
+  --navy-950: #0b1b33;
+  --slate-600: #4f607a;
+  --slate-300: #d5e0ef;
+  --gold-400: #f7c23c;
+  --gold-500: #f5b417;
+  --amber-600: #c97a00;
+}
+
+/* ── Semantic tokens (exposed to Tailwind) ───────────────────── */
+@theme inline {
+  --color-primary: var(--blue-600);
+  --color-primary-strong: var(--blue-800);
+  --color-primary-bright: var(--blue-500);
+  --color-primary-soft: var(--blue-50);
+  --color-primary-tint: var(--blue-100);
+  --color-ink: var(--navy-950);
+  --color-muted: var(--slate-600);
+  --color-line: var(--slate-300);
+  --color-gold: var(--gold-500);
+  --color-gold-bright: var(--gold-400);
+  --color-gold-deep: var(--amber-600);
+
+  --font-display: var(--font-outfit);
+  --font-sans: var(--font-work-sans);
+
+  --radius-card: 1.75rem;
+  --shadow-float: 0 24px 60px -24px rgb(11 27 51 / 0.35);
+  --shadow-soft: 0 12px 32px -16px rgb(11 27 51 / 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f6f9fe;
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+/* Hide carousel scrollbars but keep it scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Motion: pre-hide elements that anime.js will reveal ─────────
+   `js-motion` is only set when the user hasn't asked for reduced
+   motion, so content is never hidden without JS driving it. */
+.js-motion [data-hero-title],
+.js-motion [data-hero-nav] > *,
+.js-motion [data-hero-fade],
+.js-motion [data-infobar],
+.js-motion [data-reveal],
+.js-motion [data-stagger] > * {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
