@@ -54,11 +54,11 @@ export const event = {
   dateLabel: "28 Nov – 5 Dec",
   startLabel: "28 Nov",
   endLabel: "5 Dec",
-  // Flyer gives no year; this assumes the upcoming 2026 edition (SGT).
-  startsAt: "2026-11-28T00:00:00+08:00",
+  // Sessions start Monday 30 Nov 2026 (SGT); the trip itself runs 28 Nov – 5 Dec. No start time given, so midnight.
+  startsAt: "2026-11-30T00:00:00+08:00",
   endsAt: "2026-12-05T23:59:59+08:00",
   registerUrl: "https://www.aiswam.org/conferences",
-  registerLabel: "www.aiswam.org/conferences",
+  registerLabel: "www.aiswam.org",
   email: "info@kaiswam.edu.gh",
   phone: "+233 53 110 0924",
   phoneHref: "tel:+233531100924",
